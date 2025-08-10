@@ -49,13 +49,8 @@ CREATE TABLE LOAN (
     ReturnDate DATE NOT NULL, 
     FOREIGN KEY (BookID) REFERENCES BOOK(BookID),
     FOREIGN KEY (MembersID) REFERENCES MEMBERS(MembersID)
+
+    --Added a loan check constraint that checks the return date comes after the loan date
+    CHECK (ReturnDate > LoanDate);
 );
 
-CREATE TABLE BOOKLOCATION(
-    BookID INT NOT NULL,
-    BranchID INT NOT NULL,
-    Quantity INT NOT NULL,
-    PRIMARY KEY (BookID, BranchID),
-    FOREIGN KEY (BookID) REFERENCES BOOK(BookID),
-    FOREIGN KEY (BranchID) REFERENCES BRANCHES(BranchID)
-);
