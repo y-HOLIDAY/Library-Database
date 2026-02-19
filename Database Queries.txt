@@ -1,4 +1,4 @@
---@authpr - Yo Mothowamodimo
+--@author - Yo Mothowamodimo
 -- TESTED QUERIES
 
 -- Selects all Books and their authors
