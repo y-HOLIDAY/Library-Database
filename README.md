@@ -2,7 +2,7 @@
 A simple library database that includes code that 
 - create tables
 - queries
-- ER diagram
+
 
 This project was created to test myself with the application of SQL.
 Inlcudes the code to 
