@@ -1,5 +1,5 @@
---@Yo Mothowamodimo
--- Queries used to test out the database
+--@authpr - Yo Mothowamodimo
+-- TESTED QUERIES
 
 -- Selects all Books and their authors
 SELECT B.BookTitle, A.FirstName, A.LastName
