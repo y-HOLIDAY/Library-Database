@@ -23,7 +23,9 @@ CREATE TABLE BOOK (
     ISBN VARCHAR(20) NOT NULL CHECK (LENGTH(ISBN) BETWEEN 10 AND 20),
     AuthorID INT,
     Genre VARCHAR(255) NOT NULL CHECK (Genre <> ''),
-    FOREIGN KEY (AuthorID) REFERENCES AUTHOR(AuthorID)
+    PublisherID INT,
+    FOREIGN KEY (AuthorID) REFERENCES AUTHOR(AuthorID),
+    FOREIGN KEY (PublisherID) REFERENCES PUBLISHER(PublisherID)
 );
 
 CREATE TABLE STAFF(
@@ -64,3 +66,15 @@ CREATE TABLE BOOKLOCATION(
     FOREIGN KEY (BranchID) REFERENCES BRANCHES(BranchID)
 );
 
+-- 26/05/2026 Added a Publisher table 
+CREATE TABLE PUBLISHER (
+    PublisherID INT PRIMARY KEY,
+    PublisherName VARCHAR(255) NOT NULL,
+    ContactEmail VARCHAR(100) NOT NULL,
+    ContactPhone VARCHAR(20) NOT NULL,
+    Address VARCHAR(255),
+    Website VARCHAR(100),
+    CONSTRAINT UQ_PublisherName UNIQUE (PublisherName),
+    CONSTRAINT CHK_PublisherEmail CHECK (ContactEmail LIKE '%@%.%'),
+    CONSTRAINT CHK_PublisherPhone CHECK (LEN(ContactPhone) >= 10)
+);
